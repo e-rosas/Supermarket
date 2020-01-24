@@ -28,5 +28,10 @@ namespace Supermarket.API.Controllers
             
             return resources;
         }
+
+        [HttpPost]
+        public async Task<IActionResult> PostAsync([FromBody] SaveCategoryResource resource)
+        {
+        }
     }
 }
