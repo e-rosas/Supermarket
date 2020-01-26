@@ -32,6 +32,12 @@ namespace Supermarket.API.Persistence.Contexts
             builder.Entity<Product>().Property(p => p.Name).IsRequired().HasMaxLength(50);
             builder.Entity<Product>().Property(p => p.QuantityInPackage).IsRequired();
             builder.Entity<Product>().Property(p => p.UnitOfMeasurement).IsRequired();
+
+            builder.Entity<Product>().HasData
+            (
+                new Product { Id = 200, Name = "Red Apple", UnitOfMeasurement = EUnitOfMeasurement.Kilogram, QuantityInPackage = 4, CategoryId = 100}, // Id set manually due to in-memory provider
+                new Product { Id = 201, Name = "Milk",  UnitOfMeasurement = EUnitOfMeasurement.Liter, QuantityInPackage = 4, CategoryId = 101 }
+            );
         }
     }
 }
